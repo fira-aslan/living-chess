@@ -1,11 +1,10 @@
-
+---
 deployment:
   tasks:
     - export DEPLOYPATH=/home/example/public_html/
-    - echo "Cloning repository..."
-    - git clone $GIT_URL $DEPLOYPATH || (cd $DEPLOYPATH && git pull origin main)
+    - /bin/cp -R * $DEPLOYPATH
     - cd $DEPLOYPATH
     - echo "Installing dependencies..."
-    - npm install
+    - /bin/npm install
     - echo "Starting application..."
-    - npm start
+    - /bin/npm start
